@@ -2,198 +2,232 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Developer Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+  <meta charset="UTF-8">
+  <title>Portfolio Animation</title>
 
-    <style>
-        /* General Styles */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            transition: background 0.3s, color 0.3s;
-        }
+  <style>
+    body {
 
-        /* Navigation Bar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            /*background: #333;*/
-            background: #453837;
-            padding: 15px 20px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: background 0.3s ease-in-out;
-        }
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      transition: background 0.3s, color 0.3s;
+      background-color: black;
+      color: white;
+      /*
+    margin: 0;
+    height: 100vh;
+    background: #0d0d0d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+   */
+    }
 
-        .logo {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: white;
-        }
+    .text span {
+      display: inline-block;
+      font-size: 50px;
 
-        /* Light & Dark Mode */
-        .light-mode {
-            /*background: #f4f4f4;*/
-            
-            color: black;
-        }
+      letter-spacing: 6px;
 
-        .dark-mode {
-            background: #222;
-            color: white;
-        }
+      opacity: 0;
+      transform: translateY(50px) scale(0.8);
 
-        /* Nav Links */
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-            position: relative;
-            padding: 0px 20px;
-            right: 20px;
-            margin: 0px;
-        }
+      animation: reveal 4s ease-in-out infinite;
+    }
 
-        .nav-links li {
-            display: inline;
-            position: relative;
-        }
-
-        /* Dropdown Styling */
-        .dropdown-menu {
-            display: block;
-            position: absolute;
-            background: rgba(0, 0, 0, 0.9);
-            min-width: 150px;
-            top: 40px;
-            left: 0;
-            padding: 0px;
-            border-radius: 5px;
-            overflow: hidden;
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .dropdown-menu li {
-            display: block;
-            padding: 10px;
-            transition: background 0.3s;
-        }
-
-        .dropdown-menu a {
-            color: white;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-menu li:hover {
-            background: #ff4e50;
-        }
-
-        /* Dropdown Hover Effect */
-        .dropdown:hover .dropdown-menu {
-            display: block;
-            opacity: 1;
-            transform: translateY(5px);
-        }
-
-        .menu-toggle {
-            display: none;
-
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-                font-size: 2em;
-                background: none;
-                border: none;
-                color: white;
-                right: 40px;
-                z-index: 100;
-                position: relative;
-                cursor: pointer;
-                transition: transform 0.3s;
-            }
-
-            .nav-links {
-                display: flex;
-                flex-direction: column;
-                /*background: #333;*/
-                background-color: #955353;
-                width: 180px;
-                height: 100vh;
-                position: fixed;
-                top: 75px;
-                right: -290px;
-                padding: 40px 20px;
-                text-align: left;
-                transition: right 0.5s ease-in-out;
-            }
-
-            .nav-links.show {
-                right: 0;
-            }
+    /* Auto delay for each letter */
+    /* Navigation Bar */
 
 
-            .dropdown-menu {
-                position: static;
-                opacity: 1;
-                display: none;
-                background: #444;
-            }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      /*background: #333;*/
+      background: #161515;
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: background 0.3s ease-in-out;
+    }
 
-            .dropdown.open .dropdown-menu {
-                display: block;
-            }
+    .logo {
+      font-size: 1em;
+      text-decoration: none;
+      color: white;
+      letter-spacing: 2.5px;
+      font-weight: initial;
+      font-family: system-ui;
 
-            .nav-links a {
-                font-size: 1em;
-                display: block;
-                margin: 10px 0;
-                text-decoration: none;
-                color: white;
-            }
-        }
+    }
 
-        .nav-links a {
+    /* Light & Dark Mode */
 
-            text-decoration: none;
-            color: white;
-            letter-spacing: 2px;
-            line-height: 1.4;
-        }
 
-        .main-body {
-            /* position: relative;
+    .dark-mode {
+      background: white;
+      color: black;
+    }
+
+    /* Nav Links */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      position: relative;
+      padding: 0px 20px;
+      right: 20px;
+      margin: 0px;
+    }
+
+    .nav-links li {
+      display: inline;
+      position: relative;
+    }
+
+    /* Dropdown Styling */
+    .dropdown-menu {
+      display: block;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.9);
+      min-width: 150px;
+      top: 40px;
+      left: 0;
+      padding: 0px;
+      border-radius: 5px;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .dropdown-menu li {
+      display: block;
+      padding: 10px;
+      transition: background 0.3s;
+    }
+
+    .dropdown-menu a {
+      color: white;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-menu li:hover {
+      background: #ff4e50;
+    }
+
+    /* Dropdown Hover Effect */
+    .dropdown:hover .dropdown-menu {
+      display: block;
+      opacity: 1;
+      transform: translateY(5px);
+    }
+
+    .menu-toggle {
+      display: none;
+
+    }
+
+    .text {
+      display: block;
+      position: relative;
+      display: block;
+      position: relative;
+      margin-top: 100px;
+      padding: 100px;
+      padding-bottom: 10px;
+      font-weight: bold;
+      font-family: system-ui;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+        font-size: 2em;
+        background: none;
+        border: none;
+        color: white;
+        right: 40px;
+        z-index: 100;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        /*background: #333;*/
+        background-color: #0d0d0d;
+        width: 180px;
+        height: 100vh;
+        position: fixed;
+        top: 75px;
+        right: -290px;
+        padding: 40px 20px;
+        text-align: left;
+        transition: right 0.5s ease-in-out;
+      }
+
+      .nav-links.show {
+        right: 0;
+      }
+
+
+      .dropdown-menu {
+        position: static;
+        opacity: 1;
+        display: none;
+        background: #161515;
+      }
+
+      .dropdown.open .dropdown-menu {
+        display: block;
+      }
+
+      .nav-links a {
+        font-size: 1em;
+        display: block;
+        margin: 10px 0;
+        text-decoration: none;
+        color: white;
+      }
+    }
+
+    .nav-links a {
+
+      text-decoration: none;
+      color: white;
+      letter-spacing: 2px;
+      line-height: 1.4;
+    }
+
+    .main-body {
+      /* position: relative;
             top: 80px;
             max-width: 1000px;
             margin: auto;
             padding: 20px;8*/
-            position: absolute;
-            top: 57px;
-            margin: auto;
-            left: 5%;
-            right: 5%;
-            padding: 20px;
-        }
+      position: relative;
+      top: 57px;
+      margin: auto;
+      font-family: system-ui;
+      padding: 20px;
 
-        .commun {
-            padding: 10px;
+    }
 
-        }
+    .commun {
+      padding: 10px;
 
-        /* Mobile Dropdown Click Effect */
-        /*@media (max-width: 768px) {
+    }
+
+    /* Mobile Dropdown Click Effect */
+    /*@media (max-width: 768px) {
     .menu-toggle {
        
 
@@ -249,83 +283,28 @@
         margin: 10px 0;
     }
 }*/
-    </style>
+  </style>
+
 </head>
 
-
-<!--<div className="header">
-        <h1>My Portfolio</h1>
-        <nav>
-          <ul>
-            <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>-->
-<!--<body class="light-mode">
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><button id="theme-toggle">🌙</button></li>
-        </ul>
-    </nav>
-    <header>
-        <h1>Hi, I'm <span>[Your Name]</span></h1>
-        <p>Full Stack Web Developer</p>
-        <a href="#portfolio" class="btn">View My Work</a>
-    </header>
-    <section id="testimonials" class="slide-in">
-        <h2>What Clients Say</h2>
-        <div class="testimonial">
-            <p>"Amazing developer! Built my website flawlessly!"</p>
-            <h4>- John Doe</h4>
-        </div>
-        <div class="testimonial">
-            <p>"Highly skilled and professional. Delivered on time."</p>
-            <h4>- Jane Smith</h4>
-        </div>
-    </section>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a passionate web developer specializing in front-end and back-end development...</p>
-    </section>
-
-    
-
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-    
-</body>-->
-
 <body class="light-mode">
-    <header class="fade-in">
+  <header class="fade-in">
 
-        <nav>
-            <div class="logo"><a href="" style="text-decoration: none;
+    <nav>
+      <div class="logo"><a href="" style="text-decoration: none;
     color: white;">MyPortfolio</a></div>
-            <button class="menu-toggle" id="menu-toggle">☰</button>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="about.html">About</a></li>
-                <li class="dropdown">
-                    <a href="#portfolio">Portfolio ⌵</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#web-design">Web Design</a></li>
-                        <li><a href="#graphic-design">Graphic Design</a></li>
-                        <li><a href="#branding">Branding</a></li>
-                    </ul>
-                </li>
-                <!-- <li class="dropdown">
+      <button class="menu-toggle" id="menu-toggle">☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li class="dropdown">
+          <a href="#portfolio">Portfolio ⌵</a>
+          <ul class="dropdown-menu">
+            <li><a href="#web-design">Web Design</a></li>
+            <li><a href="#graphic-design">Graphic Design</a></li>
+            <li><a href="#branding">Branding</a></li>
+          </ul>
+        </li>
+        <!-- <li class="dropdown">
                     <a href="#blog">Blog ⌵</a>
                     <ul class="dropdown-menu">
                         <li><a href="#tech">Tech</a></li>
@@ -333,183 +312,139 @@
                         <li><a href="#marketing">Marketing</a></li>
                     </ul>
                 </li>-->
-                <!--<li><a href="#testimonials">Testimonials</a></li>-->
-                <li><a href="#contact">Contact</a></li>
-                <li><button id="theme-toggle" style="display: contents;">🌙</button></li>
-            </ul>
-        </nav>
-    </header>
-    <main class="main-body" style="max-width: 1000px;">
+        <!--<li><a href="#testimonials">Testimonials</a></li>-->
+        <li><a href="#contact">Contact</a></li>
+        <li><button id="theme-toggle" style="display: contents;">🌙</button></li>
+      </ul>
+    </nav>
+  </header>
 
-        <h1 style="    font-size: 2rem;
-    padding: 40px 0px;
-    letter-spacing: 6px;
-    line-height: 1.4;
-    font-variant-caps: all-small-caps;">Welcome to my portfolio! </h1><!--<p style="letter-spacing: 2px;
+
+  <div class="text" id="text"></div>
+
+
+  <main class="main-body" style="max-width: 1000px;">
+
+    <!--<p style="letter-spacing: 2px;
             line-height: 1.4;">a web developer passionate about creating modern,
                 responsive, and user-friendly websites. With expertise in HTML, CSS, JavaScript, React, Node.js,
                 Laravel, Php, Sql and WordPress, I develop solutions that enhance digital experiences.</p>-->
-        <section>
-            <p style="letter-spacing: 2px;
+    <section>
+      <p style="letter-spacing: 2px;
     line-height: 1.4;">Welcome to My Creative Portfolio! 🌟 Dive into a world where artistry meets functionality. As a
-                web developer and graphic designer,
-                I thrive on crafting seamless digital experiences and captivating visuals that leave a lasting
-                impression.</p>
-            <p style="letter-spacing: 2px;
-            line-height: 1.4;">Web Developer | Designer </p>
-            <section>
-                <div style="padding: 10px 0px;"><a href="#portfolio" class="btn">Explore My Work</a></div>
-            </section>
-
-            <section id="portfolio">
-                <!--<h2>My Projects</h2>
-            <div class="project">
-                <img src="" alt="Project 1">
-                
-            </div>-->
-                <div id="about">
-                    <!--<h1>about me</h1>-->
+        web developer and graphic designer,
+        I thrive on crafting seamless digital experiences and captivating visuals that leave a lasting
+        impression.</p>
 
 
-                </div>
 
-                <div style="letter-spacing: 2px;
-            line-height: 1.4;
-            place-items: anchor-center;
-        ">
-                    <!--<h2 style="font-size: 20px;
-                letter-spacing: 2px;
-                line-height: 1.4;">I offer a range of web development services to meet your business needs:</h2> <br>
-                <section style="
-    justify-items: baseline;">
-                <li> Custom Web Development – Tailor-made solutions from scratch</li> <br>
-                 <li>E-commerce Development – Online stores with seamless shopping experiences</li> <br>
-                 <li>Website Optimization – Speed, performance, and SEO improvements </li><br>
-                 <li>WordPress Development – Custom themes and plugin integrations</li></section>
-                 Web Development: Explore my skillset in creating responsive, user-friendly websites that marry aesthetic
-                appeal with robust functionality.
-                From elegant front-end designs to efficient back-end solutions, my projects reflect my passion for
-                coding and problem-solving.
-                 -->
-                    Welcome to My Web Development Portfolio! 🌟 As a budding web developer, I'm excited to showcase my
-                    journey into the world of coding and design.
-                    This portfolio is a collection of my learning experiences, projects, and creative experiments as I
-                    build my skills in crafting functional and visually appealing websites
-                </div>
-                <section>
-                    <p style="letter-spacing: 2px;
-                line-height: 1.4;"> years of experience in front-end and back-end development.
-                        I specialize in building fast, accessible, and visually appealing websites. My skill set
-                        includes:
-                    </p>
-                </section>
-                <div style="letter-spacing: 2px;
-            line-height: 1.4;">Skills: Proficiency in web technologies like HTML, CSS, JavaScript, React, Laravel,
-                    WordPress, Bootstrap, Node.js and
-                    Java as I continue to learn and expand my toolkit.</div>
-                <p style="letter-spacing: 2px;
-            line-height: 1.4; font-weight: 600;">I believe in writing clean, efficient code and delivering digital
-                    experiences that make
-                    an impact.</p>
-
-            </section>
-
-            <section>
-                <section>
-                    <p style="letter-spacing: 2px;
-            line-height: 1.4;">Graphic Design
-
-                    </p>
-
-
-                </section>
-                <div style="letter-spacing: 2px;
-                line-height: 1.4;margin: 10px 0px;">Projects: My initial design works, including Catalogue, logos,
-                    posters, social
-                    media graphics, and
-                    more—each crafted with dedication and creativity.</div>
-
-                <!--<section style="letter-spacing: 2px;
-            line-height: 1.4;"> Front-End: HTML, CSS, JavaScript, React, Vue.js
-                    Back-End: Node.js, PHP, Python
-                    CMS & E-commerce: WordPress, Shopify
-                    Database: MySQL, Firebase
-                    Deployment & Performance: Git, AWS, SEO optimization</section>-->
-                <div>
-                    <section style="letter-spacing: 2px;
-            line-height: 1.4;">
-                        Skills: My foundational knowledge in Adobe illustrator, photoshop, indesign, dimension,
-                        Coraldraw,
-                        and
-                        canva.
-                    </section>
-                </div>
-            </section>
-            <footer>
-                <div style="position: relative;place-items: anchor-center;
+      </div>
+    </section>
+    <footer>
+      <div style="position: relative;place-items: anchor-center;
             display: block;
             bottom: 0px;
             padding: 70px 0px 0px 0px;">
-                    <h2 style="font-size: 16px;
+        <h2 style="font-size: 16px;
                 letter-spacing: 2px;
                 line-height: 1.4;">For queries get in touch</h2>
-                    <p style="
+        <p style="
                 letter-spacing: 2px;
                 line-height: 1.4;">Have a project in mind or need a developer for your team? Feel free to reach out.
-                    </p>
-                    <section style="display: flex
+        </p>
+        <section style="display: flex
                     ;
                         flex-wrap: wrap;
                         justify-content: center;">
-                        <div class="commun"><label for="">Email:<a href="mailto:divbha331@gmail.com"
-                                    style="color: black;">divbha331@gmail.com</a></label></div>
-                        <!--<div class="commun"><label for="">Website:<a href="">www.yourportfolio.com</a></label></div>-->
-                        <div class="commun"><label for="">Linkedin:<a href="https://www.linkedin.com/in/sachin-sahani-84aaa0218/
-                            " style="color: black;">https://www.linkedin.com/in/sachin-sahani-84aaa0218/
-                            </a></label></div>
-                    </section>
-                </div>
+          <div class="commun"><label for="">Email:<a href="mailto:divbha331@gmail.com" style="margin: 5px;
+    
+    text-decoration: none;">divbha331@gmail.com</a></label></div>
+          <!--<div class="commun"><label for="">Website:<a href="">www.yourportfolio.com</a></label></div>-->
+          <div class="commun"><label for="">Linkedin:<a href="https://www.linkedin.com/in/sachin-sahani-84aaa0218/
+                            "
+                style=" text-decoration: none; margin: 5px;">https://www.linkedin.com/in/sachin-sahani-84aaa0218/
+              </a></label></div>
         </section>
-        </footer>
-    </main>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const menuToggle = document.getElementById("menu-toggle");
-            const navLinks = document.getElementById("nav-links");
-            const dropdowns = document.querySelectorAll(".dropdown");
+      </div>
+      </section>
+    </footer>
+  </main>
 
-            // Toggle Mobile Menu
-            menuToggle.addEventListener("click", () => {
-                navLinks.classList.toggle("show");
-                menuToggle.textContent = navLinks.classList.contains("show") ? "✖" : "☰";
-            });
 
-            // Close menu when a link is clicked (on mobile)
-            document.querySelectorAll(".nav-links a").forEach(link => {
-                link.addEventListener("click", () => {
-                    navLinks.classList.remove("show");
-                    menuToggle.textContent = "☰";
-                });
-            });
+  <script>
+    const text = "WELCOME TO MY PORTFOLIO";
+    const container = document.getElementById("text");
 
-            // Dropdown Click Functionality (for Mobile)
-            dropdowns.forEach(dropdown => {
-                dropdown.addEventListener("click", function () {
-                    this.classList.toggle("open");
-                });
-            });
+    text.split("").forEach((char, i) => {
+      const span = document.createElement("span");
+      span.textContent = char === " " ? "\u00A0" : char;
 
-            // Dark Mode Toggle
-            const themeToggle = document.getElementById("theme-toggle");
-            themeToggle.addEventListener("click", () => {
-                document.body.classList.toggle("dark-mode");
-                document.body.classList.toggle("light-mode");
-                themeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
-            });
+      span.style.animationDelay = `${i * 0.15}s`;
+      container.appendChild(span);
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+      const dropdowns = document.querySelectorAll(".dropdown");
+
+      // Toggle Mobile Menu
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+        menuToggle.textContent = navLinks.classList.contains("show") ? "✖" : "☰";
+      });
+
+      // Close menu when a link is clicked (on mobile)
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("show");
+          menuToggle.textContent = "☰";
         });
+      });
+
+      // Dropdown Click Functionality (for Mobile)
+      dropdowns.forEach(dropdown => {
+        dropdown.addEventListener("click", function () {
+          this.classList.toggle("open");
+        });
+      });
+
+      // Dark Mode Toggle
+      const themeToggle = document.getElementById("theme-toggle");
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        document.body.classList.toggle("light-mode");
+        themeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+      });
+    });
 
 
-    </script>
+  </script>
+  <style>
+    @keyframes reveal {
+      0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.8);
+      }
+
+      30% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      70% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.8);
+      }
+    }
+  </style>
+
 </body>
 
 </html>
