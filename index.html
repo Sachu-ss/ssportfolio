@@ -10,187 +10,285 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Animated Background Canvas -->
+    <canvas id="particleCanvas" class="particle-canvas"></canvas>
+    
+    <!-- Animated Gradient Mesh Background -->
+    <div class="gradient-mesh">
+        <div class="mesh-blob mesh-blob-1"></div>
+        <div class="mesh-blob mesh-blob-2"></div>
+        <div class="mesh-blob mesh-blob-3"></div>
+        <div class="mesh-blob mesh-blob-4"></div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Alex.</a>
+            <a href="#" class="logo">
+                <span class="logo-bracket">&lt;</span>Portfolio<span class="logo-bracket">/&gt;</span>
+            </a>
             <ul class="nav-links">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
+               <!-- <li><a href="#projects" class="nav-link">Projects</a></li>-->
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <a href="#contact" class="nav-cta">Hire Me</a>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
             </button>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#home" class="mobile-link">Home</a>
-        <a href="#about" class="mobile-link">About</a>
-        <a href="#projects" class="mobile-link">Projects</a>
-        <a href="#contact" class="mobile-link">Contact</a>
-        <a href="#contact" class="mobile-cta">Hire Me</a>
+        <div class="mobile-menu-bg"></div>
+        <a href="#home" class="mobile-link" style="--delay: 0.1s">Home</a>
+        <a href="#about" class="mobile-link" style="--delay: 0.2s">About</a>
+        <!-- <a href="#projects" class="mobile-link" style="--delay: 0.3s">Projects</a> -->
+        <a href="#contact" class="mobile-link" style="--delay: 0.4s">Contact</a>
+        <a href="#contact" class="mobile-cta" style="--delay: 0.5s">Hire Me</a>
     </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <!-- Animated Background Grid -->
-        <div class="bg-grid"></div>
-        
-        <!-- Floating Orbs -->
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
+        <!-- Floating Geometric Shapes -->
+        <div class="shape shape-triangle"></div>
+        <div class="shape shape-circle"></div>
+        <div class="shape shape-square"></div>
+        <div class="shape shape-ring"></div>
+        <div class="shape shape-dots"></div>
 
-        <!-- Corner Decorations -->
-        <div class="corner corner-tl"></div>
-        <div class="corner corner-tr"></div>
-        <div class="corner corner-bl"></div>
-        <div class="corner corner-br"></div>
+        <!-- Animated Grid Lines -->
+        <div class="grid-lines">
+            <div class="grid-line grid-line-h"></div>
+            <div class="grid-line grid-line-h"></div>
+            <div class="grid-line grid-line-h"></div>
+            <div class="grid-line grid-line-v"></div>
+            <div class="grid-line grid-line-v"></div>
+            <div class="grid-line grid-line-v"></div>
+        </div>
 
         <div class="hero-content">
-            <!-- Greeting -->
-            <span class="greeting scroll-animate">👋 Welcome to my portfolio</span>
+            <!-- Greeting Badge -->
+            <div class="greeting-wrapper scroll-reveal" data-reveal="fade-up">
+                <span class="greeting">
+                    <span class="greeting-wave">👋</span>
+                    <span class="greeting-text">Welcome to my portfolio</span>
+                </span>
+            </div>
             
-            <!-- Name -->
-            <h1 class="hero-name scroll-animate">
-                Hi, I'm <span class="name-highlight">Alex</span>
-                <svg class="underline-svg" viewBox="0 0 200 12" fill="none">
-                    <path class="underline-path" d="M2 10C50 2 150 2 198 10" stroke="url(#gradient)" stroke-width="4" stroke-linecap="round"/>
-                    <defs>
-                        <linearGradient id="gradient" x1="0" y1="0" x2="200" y2="0">
-                            <stop stop-color="#22d3ee"/>
-                            <stop offset="0.5" stop-color="#3b82f6"/>
-                            <stop offset="1" stop-color="#9333ea"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </h1>
+            <!-- Name with Typing Effect -->
+           <!-- <h1 class="hero-name scroll-reveal" data-reveal="fade-up" data-delay="100">
+                <span class="name-prefix">Hi, I'm</span>
+                <span class="name-highlight">
+                    <span class="typing-text">Alex</span>
+                    <span class="typing-cursor"></span>
+                </span>
+            </h1> -->
 
             <!-- Infinite Loop Role Animation -->
-            <div class="role-container scroll-animate">
+            <div class="role-container scroll-reveal" data-reveal="fade-up" data-delay="200">
                 <div class="role-wrapper">
-                    <div class="role role-1 active">WEB DEVELOPER</div>
-                    <div class="role role-2">UI/UX DESIGNER</div>
-                    <div class="role role-3">GRAPHIC DESIGNER</div>
-                    <div class="role role-4">CREATIVE CODER</div>
+                    <div class="role role-1 active">
+                        <span class="role-text">WEB DEVELOPER</span>
+                        <span class="role-glow"></span>
+                    </div>
+                    <div class="role role-2">
+                        <span class="role-text">UI/UX DESIGNER</span>
+                        <span class="role-glow"></span>
+                    </div>
+                    <div class="role role-3">
+                        <span class="role-text">GRAPHIC DESIGNER</span>
+                        <span class="role-glow"></span>
+                    </div>
+                    <div class="role role-4">
+                        <span class="role-text">CREATIVE CODER</span>
+                        <span class="role-glow"></span>
+                    </div>
                 </div>
             </div>
 
             <!-- Description -->
-            <p class="hero-description scroll-animate">
-                I craft beautiful digital experiences that combine <span class="text-cyan">clean code</span> with <span class="text-pink">stunning design</span>. Let's build something amazing together.
+            <p class="hero-description scroll-reveal" data-reveal="fade-up" data-delay="300">
+                I craft <span class="highlight-cyan">beautiful digital experiences</span> that combine 
+                <span class="highlight-word" data-color="cyan">clean code</span> with 
+                <span class="highlight-word" data-color="pink">stunning design</span>. 
+                Let's build something amazing together.
             </p>
 
             <!-- Skills Tags -->
-            <div class="skills-container scroll-animate">
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">TypeScript</span>
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">Figma</span>
-                <span class="skill-tag">Photoshop</span>
-                <span class="skill-tag">Illustrator</span>
-                <span class="skill-tag">Tailwind CSS</span>
-                <span class="skill-tag">Three.js</span>
-                <span class="skill-tag">Next.js</span>
-                <span class="skill-tag">UI Design</span>
-                <span class="skill-tag">Branding</span>
-                <span class="skill-tag">Motion</span>
+            <div class="skills-container scroll-reveal" data-reveal="fade-up" data-delay="400">
+                <span class="skill-tag" style="--tag-color: #22d3ee">React</span>
+                <span class="skill-tag" style="--tag-color: #3b82f6">TypeScript</span>
+                <span class="skill-tag" style="--tag-color: #10b981">Node.js</span>
+                <span class="skill-tag" style="--tag-color: #f472b6">Figma</span>
+                <span class="skill-tag" style="--tag-color: #8b5cf6">Photoshop</span>
+                <span class="skill-tag" style="--tag-color: #f59e0b">Illustrator</span>
+                <span class="skill-tag" style="--tag-color: #f59e0b">Dimension</span>
+                <span class="skill-tag" style="--tag-color: #06b6d4">Tailwind</span>
+                <span class="skill-tag" style="--tag-color: #ec4899">Express.js</span>
+                <span class="skill-tag" style="--tag-color: #6366f1">Next.js</span>
+                <span class="skill-tag" style="--tag-color: #14b8a6">UI Design</span>
+                <span class="skill-tag" style="--tag-color: #f97316">Branding</span>
+                <span class="skill-tag" style="--tag-color: #a855f7">Motion</span>
             </div>
 
             <!-- CTA Buttons -->
-            <div class="hero-buttons scroll-animate">
-                <a href="#projects" class="btn btn-primary">
-                    View My Work
-                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
+            <div class="hero-buttons scroll-reveal" data-reveal="fade-up" data-delay="500">
+                <a href="#projects" class="btn btn-primary btn-glow">
+                    <span class="btn-text">View My Work</span>
+                    <span class="btn-icon-wrapper">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </span>
                 </a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                <a href="#contact" class="btn btn-secondary">
+                    <span class="btn-text">Get In Touch</span>
+                </a>
             </div>
 
             <!-- Role Indicator Dots -->
-            <div class="role-dots">
-                <button class="role-dot active" data-index="0" aria-label="Role 1"></button>
-                <button class="role-dot" data-index="1" aria-label="Role 2"></button>
-                <button class="role-dot" data-index="2" aria-label="Role 3"></button>
-                <button class="role-dot" data-index="3" aria-label="Role 4"></button>
+            <div class="role-dots scroll-reveal" data-reveal="fade-up" data-delay="600">
+                <button class="role-dot active" data-index="0" aria-label="Web Developer">
+                    <span class="dot-pulse"></span>
+                </button>
+                <button class="role-dot" data-index="1" aria-label="UI/UX Designer">
+                    <span class="dot-pulse"></span>
+                </button>
+                <button class="role-dot" data-index="2" aria-label="Graphic Designer">
+                    <span class="dot-pulse"></span>
+                </button>
+                <button class="role-dot" data-index="3" aria-label="Creative Coder">
+                    <span class="dot-pulse"></span>
+                </button>
             </div>
         </div>
 
         <!-- Scroll Indicator -->
-        <a href="#about" class="scroll-indicator">
-            <span class="scroll-text">Scroll</span>
+        <a href="#about" class="scroll-indicator scroll-reveal" data-reveal="fade-up" data-delay="700">
             <div class="scroll-mouse">
                 <div class="scroll-wheel"></div>
             </div>
+            <span class="scroll-text">Scroll to explore</span>
         </a>
+
+        <!-- Corner Accents -->
+        <div class="corner-accent corner-tl">
+            <div class="corner-line corner-line-h"></div>
+            <div class="corner-line corner-line-v"></div>
+        </div>
+        <div class="corner-accent corner-tr">
+            <div class="corner-line corner-line-h"></div>
+            <div class="corner-line corner-line-v"></div>
+        </div>
+        <div class="corner-accent corner-bl">
+            <div class="corner-line corner-line-h"></div>
+            <div class="corner-line corner-line-v"></div>
+        </div>
+        <div class="corner-accent corner-br">
+            <div class="corner-line corner-line-h"></div>
+            <div class="corner-line corner-line-v"></div>
+        </div>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
-        <div class="bg-pattern"></div>
-        
+        <!-- Section Background -->
+        <div class="section-bg">
+            <div class="bg-glow bg-glow-1"></div>
+            <div class="bg-glow bg-glow-2"></div>
+        </div>
+
         <div class="container">
-            <div class="section-header scroll-animate">
-                <span class="section-tag">About Me</span>
+            <div class="section-header scroll-reveal" data-reveal="fade-up">
+                <div class="section-tag-wrapper">
+                    <span class="section-tag">About Me</span>
+                    <span class="tag-line"></span>
+                </div>
                 <h2 class="section-title">
                     Passionate About <span class="gradient-text">Creating</span>
                 </h2>
                 <p class="section-description">
-                    With over 5 years of experience in web development and design, I bring ideas to life through clean code and pixel-perfect designs.
+                    With over 1.5 years of experience in web development and design, I bring ideas to life 
+                    through clean code and pixel-perfect designs.
                 </p>
             </div>
 
-            <!-- Stats -->
+            <!-- Stats Grid -->
             <div class="stats-grid">
-                <div class="stat-card scroll-animate">
-                    <div class="stat-value">5+</div>
+                <div class="stat-card scroll-reveal" data-reveal="scale-up" data-delay="100">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-value" data-target="1.5">0</div>
+                    <div class="stat-suffix">+</div>
                     <div class="stat-label">Years Experience</div>
+                    <div class="stat-bar"></div>
                 </div>
-                <div class="stat-card scroll-animate">
-                    <div class="stat-value">50+</div>
+                <div class="stat-card scroll-reveal" data-reveal="scale-up" data-delay="200">
+                    <div class="stat-icon">🚀</div>
+                    <div class="stat-value" data-target="10">0</div>
+                    <div class="stat-suffix">+</div>
                     <div class="stat-label">Projects Completed</div>
+                    <div class="stat-bar"></div>
                 </div>
-                <div class="stat-card scroll-animate">
-                    <div class="stat-value">30+</div>
+                <div class="stat-card scroll-reveal" data-reveal="scale-up" data-delay="300">
+                    <div class="stat-icon">😊</div>
+                    <div class="stat-value" data-target="10">0</div>
+                    <div class="stat-suffix">+</div>
                     <div class="stat-label">Happy Clients</div>
+                    <div class="stat-bar"></div>
                 </div>
-                <div class="stat-card scroll-animate">
-                    <div class="stat-value">100%</div>
+                <div class="stat-card scroll-reveal" data-reveal="scale-up" data-delay="400">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-value" data-target="100">0</div>
+                    <div class="stat-suffix">%</div>
                     <div class="stat-label">Satisfaction Rate</div>
+                    <div class="stat-bar"></div>
                 </div>
             </div>
 
             <!-- Services -->
             <div class="services-section">
-                <h3 class="services-title scroll-animate">What I Do</h3>
+                <h3 class="services-title scroll-reveal" data-reveal="fade-up">What I Do</h3>
                 <div class="services-grid">
-                    <div class="service-card scroll-animate">
-                        <div class="service-icon">💻</div>
+                    <div class="service-card scroll-reveal" data-reveal="slide-left" data-delay="100">
+                        <div class="service-icon-wrapper">
+                            <div class="service-icon">💻</div>
+                            <div class="service-icon-glow"></div>
+                        </div>
                         <h4 class="service-title">Web Development</h4>
                         <p class="service-description">Building fast, responsive, and scalable web applications using modern technologies.</p>
+                        <div class="service-arrow">→</div>
                     </div>
-                    <div class="service-card scroll-animate">
-                        <div class="service-icon">🎨</div>
+                    <div class="service-card scroll-reveal" data-reveal="slide-up" data-delay="200">
+                        <div class="service-icon-wrapper">
+                            <div class="service-icon">🎨</div>
+                            <div class="service-icon-glow"></div>
+                        </div>
                         <h4 class="service-title">UI/UX Design</h4>
                         <p class="service-description">Creating intuitive and visually stunning user interfaces that delight users.</p>
+                        <div class="service-arrow">→</div>
                     </div>
-                    <div class="service-card scroll-animate">
-                        <div class="service-icon">✨</div>
+                    <div class="service-card scroll-reveal" data-reveal="slide-up" data-delay="300">
+                        <div class="service-icon-wrapper">
+                            <div class="service-icon">✨</div>
+                            <div class="service-icon-glow"></div>
+                        </div>
                         <h4 class="service-title">Graphic Design</h4>
                         <p class="service-description">Crafting memorable brand identities, logos, and marketing materials.</p>
+                        <div class="service-arrow">→</div>
                     </div>
-                    <div class="service-card scroll-animate">
-                        <div class="service-icon">🚀</div>
+                    <div class="service-card scroll-reveal" data-reveal="slide-right" data-delay="400">
+                        <div class="service-icon-wrapper">
+                            <div class="service-icon">🚀</div>
+                            <div class="service-icon-glow"></div>
+                        </div>
                         <h4 class="service-title">Motion Design</h4>
                         <p class="service-description">Bringing designs to life with smooth animations and micro-interactions.</p>
+                        <div class="service-arrow">→</div>
                     </div>
                 </div>
             </div>
@@ -199,11 +297,16 @@
 
     <!-- Projects Section -->
     <section class="projects" id="projects">
-        <div class="bg-gradient"></div>
-        
+        <div class="section-bg">
+            <div class="bg-glow bg-glow-3"></div>
+        </div>
+
         <div class="container">
-            <div class="section-header scroll-animate">
-                <span class="section-tag section-tag-purple">My Work</span>
+            <div class="section-header scroll-reveal" data-reveal="fade-up">
+                <div class="section-tag-wrapper">
+                    <span class="section-tag section-tag-purple">My Work</span>
+                    <span class="tag-line tag-line-purple"></span>
+                </div>
                 <h2 class="section-title">
                     Featured <span class="gradient-text-purple">Projects</span>
                 </h2>
@@ -214,9 +317,14 @@
 
             <!-- Projects Grid -->
             <div class="projects-grid">
-                <div class="project-card scroll-animate">
-                    <div class="project-image project-gradient-pink">
-                        <span class="project-icon">🛒</span>
+                <article class="project-card scroll-reveal" data-reveal="slide-up" data-delay="100">
+                    <div class="project-image-wrapper">
+                        <div class="project-image project-gradient-pink">
+                            <span class="project-icon">🛒</span>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="project-view">View Project</span>
+                        </div>
                     </div>
                     <div class="project-content">
                         <span class="project-category">Web Development</span>
@@ -229,11 +337,16 @@
                             <span class="tech-tag">Stripe</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card scroll-animate">
-                    <div class="project-image project-gradient-cyan">
-                        <span class="project-icon">📊</span>
+                <article class="project-card scroll-reveal" data-reveal="slide-up" data-delay="200">
+                    <div class="project-image-wrapper">
+                        <div class="project-image project-gradient-cyan">
+                            <span class="project-icon">📊</span>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="project-view">View Project</span>
+                        </div>
                     </div>
                     <div class="project-content">
                         <span class="project-category">UI/UX Design</span>
@@ -246,11 +359,16 @@
                             <span class="tech-tag">TypeScript</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card scroll-animate">
-                    <div class="project-image project-gradient-purple">
-                        <span class="project-icon">🎨</span>
+                <article class="project-card scroll-reveal" data-reveal="slide-up" data-delay="300">
+                    <div class="project-image-wrapper">
+                        <div class="project-image project-gradient-purple">
+                            <span class="project-icon">🎨</span>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="project-view">View Project</span>
+                        </div>
                     </div>
                     <div class="project-content">
                         <span class="project-category">Graphic Design</span>
@@ -262,11 +380,16 @@
                             <span class="tech-tag">InDesign</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card scroll-animate">
-                    <div class="project-image project-gradient-emerald">
-                        <span class="project-icon">💬</span>
+                <article class="project-card scroll-reveal" data-reveal="slide-up" data-delay="100">
+                    <div class="project-image-wrapper">
+                        <div class="project-image project-gradient-emerald">
+                            <span class="project-icon">💬</span>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="project-view">View Project</span>
+                        </div>
                     </div>
                     <div class="project-content">
                         <span class="project-category">Web Development</span>
@@ -279,11 +402,16 @@
                             <span class="tech-tag">Redis</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card scroll-animate">
-                    <div class="project-image project-gradient-orange">
-                        <span class="project-icon">🌐</span>
+                <article class="project-card scroll-reveal" data-reveal="slide-up" data-delay="200">
+                    <div class="project-image-wrapper">
+                        <div class="project-image project-gradient-orange">
+                            <span class="project-icon">🌐</span>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="project-view">View Project</span>
+                        </div>
                     </div>
                     <div class="project-content">
                         <span class="project-category">UI/UX Design</span>
@@ -296,11 +424,16 @@
                             <span class="tech-tag">Three.js</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card scroll-animate">
-                    <div class="project-image project-gradient-red">
-                        <span class="project-icon">📱</span>
+                <article class="project-card scroll-reveal" data-reveal="slide-up" data-delay="300">
+                    <div class="project-image-wrapper">
+                        <div class="project-image project-gradient-red">
+                            <span class="project-icon">📱</span>
+                        </div>
+                        <div class="project-overlay">
+                            <span class="project-view">View Project</span>
+                        </div>
                     </div>
                     <div class="project-content">
                         <span class="project-category">Graphic Design</span>
@@ -312,16 +445,18 @@
                             <span class="tech-tag">After Effects</span>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
 
             <!-- View All Button -->
-            <div class="text-center scroll-animate">
-                <a href="#" class="btn btn-outline">
-                    View All Projects
-                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
+            <div class="text-center scroll-reveal" data-reveal="fade-up" data-delay="400">
+                <a href="#" class="btn btn-outline btn-animated">
+                    <span class="btn-text">View All Projects</span>
+                    <span class="btn-icon-wrapper">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </span>
                 </a>
             </div>
         </div>
@@ -329,14 +464,19 @@
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="bg-gradient-contact"></div>
-        
+        <div class="section-bg">
+            <div class="bg-glow bg-glow-4"></div>
+        </div>
+
         <div class="container">
-            <div class="section-header scroll-animate">
-                <span class="section-tag section-tag-pink">Get In Touch</span>
-                <h2 class="section-title">
+            <div class="section-header scroll-reveal" data-reveal="fade-up">
+                <div class="section-tag-wrapper">
+                    <span class="section-tag section-tag-pink">Get In Touch</span>
+                    <span class="tag-line tag-line-pink"></span>
+                </div>
+               <!-- <h2 class="section-title">
                     Let's Work <span class="gradient-text-pink">Together</span>
-                </h2>
+                </h2>-->
                 <p class="section-description">
                     Have a project in mind? I'd love to hear about it. Send me a message and let's create something amazing.
                 </p>
@@ -344,50 +484,70 @@
 
             <div class="contact-grid">
                 <!-- Contact Form -->
-                <div class="contact-form-wrapper scroll-animate">
+                <div class="contact-form-wrapper scroll-reveal" data-reveal="slide-right">
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
-                            <label for="name" class="form-label">Your Name</label>
+                            <label for="name" class="form-label">
+                                <span class="label-icon">👤</span>
+                                Your Name
+                            </label>
                             <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required>
+                            <span class="input-focus"></span>
                         </div>
                         <div class="form-group">
-                            <label for="email" class="form-label">Your Email</label>
+                            <label for="email" class="form-label">
+                                <span class="label-icon">✉️</span>
+                                Your Email
+                            </label>
                             <input type="email" id="email" name="email" class="form-input" placeholder="john@example.com" required>
+                            <span class="input-focus"></span>
                         </div>
                         <div class="form-group">
-                            <label for="message" class="form-label">Your Message</label>
+                            <label for="message" class="form-label">
+                                <span class="label-icon">💬</span>
+                                Your Message
+                            </label>
                             <textarea id="message" name="message" class="form-textarea" rows="5" placeholder="Tell me about your project..." required></textarea>
+                            <span class="input-focus"></span>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-full">
-                            Send Message
-                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                            </svg>
+                        <button type="submit" class="btn btn-primary btn-glow btn-full">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-icon-wrapper">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                                </svg>
+                            </span>
                         </button>
                     </form>
                 </div>
 
                 <!-- Contact Info -->
-                <div class="contact-info scroll-animate">
+                <div class="contact-info scroll-reveal" data-reveal="slide-left">
                     <div class="info-card">
                         <h3 class="info-title">Contact Information</h3>
                         <div class="info-items">
                             <div class="info-item">
-                                <div class="info-icon info-icon-cyan">📧</div>
+                                <div class="info-icon info-icon-cyan">
+                                    <span class="info-icon-inner">📧</span>
+                                </div>
                                 <div class="info-content">
                                     <span class="info-label">Email</span>
-                                    <span class="info-value">hello@alexdesign.dev</span>
+                                    <span class="info-value">work.sahani@gmail.com</span>
                                 </div>
                             </div>
                             <div class="info-item">
-                                <div class="info-icon info-icon-purple">📍</div>
+                                <div class="info-icon info-icon-purple">
+                                    <span class="info-icon-inner">📍</span>
+                                </div>
                                 <div class="info-content">
                                     <span class="info-label">Location</span>
-                                    <span class="info-value">San Francisco, CA</span>
+                                    <span class="info-value">Mumbai, Maharashtra</span>
                                 </div>
                             </div>
                             <div class="info-item">
-                                <div class="info-icon info-icon-pink">🕐</div>
+                                <div class="info-icon info-icon-pink">
+                                    <span class="info-icon-inner">🕐</span>
+                                </div>
                                 <div class="info-content">
                                     <span class="info-label">Availability</span>
                                     <span class="info-value">Open for freelance</span>
@@ -396,19 +556,34 @@
                         </div>
                     </div>
 
-                    <div class="info-card">
+                    <div class="info-card" style="display: none;">
                         <h3 class="info-title">Follow Me</h3>
                         <div class="social-links">
-                            <a href="#" class="social-link" title="GitHub">⭐</a>
-                            <a href="#" class="social-link" title="LinkedIn">💼</a>
-                            <a href="#" class="social-link" title="Dribbble">🏀</a>
-                            <a href="#" class="social-link" title="Twitter">🐦</a>
+                            <a href="#" class="social-link" title="GitHub">
+                                <span class="social-icon">⭐</span>
+                                <span class="social-glow"></span>
+                            </a>
+                            <a href="#" class="social-link" title="LinkedIn">
+                                <span class="social-icon">💼</span>
+                                <span class="social-glow"></span>
+                            </a>
+                            <a href="#" class="social-link" title="Dribbble">
+                                <span class="social-icon">🏀</span>
+                                <span class="social-glow"></span>
+                            </a>
+                            <a href="#" class="social-link" title="Twitter">
+                                <span class="social-icon">🐦</span>
+                                <span class="social-glow"></span>
+                            </a>
                         </div>
                     </div>
 
                     <div class="quick-response">
-                        <p class="quick-text">⚡ Quick Response</p>
-                        <p class="quick-desc">I typically respond to all inquiries within 24 hours. Looking forward to hearing from you!</p>
+                        <div class="quick-icon">⚡</div>
+                        <div class="quick-content">
+                            <p class="quick-title">Quick Response</p>
+                            <p class="quick-desc">I typically respond within 24 hours</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -419,12 +594,14 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">Alex.</div>
+                <div class="footer-logo">
+                    <span class="logo-bracket">&lt;</span>Alex<span class="logo-bracket">/&gt;</span>
+                </div>
                 <p class="footer-text">
-                    © <span id="currentYear"></span> Alex. All rights reserved. Crafted with <span class="heart">♥</span> and lots of ☕
+                    © <span id="currentYear"></span> Alex. Crafted with <span class="heart">♥</span> and lots of <span class="coffee">☕</span>
                 </p>
                 <button class="back-to-top" id="backToTop" aria-label="Back to top">
-                    <span>Back to top</span>
+                    <span class="back-to-top-text">Back to top</span>
                     <div class="back-to-top-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 10l7-7m0 0l7 7m-7-7v18"/>
