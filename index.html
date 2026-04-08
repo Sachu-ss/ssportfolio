@@ -1,579 +1,440 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Developer Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
-
-    <style>
-        /* General Styles */
-        body {
-            font-family: system-ui;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        /* Navigation Bar */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            /*background: #333;
-            background: #453837;*/
-            background-color: #1e1a1a;
-            padding: 30px 20px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: background 0.3s ease-in-out;
-        }
-
-        .logo {
-            font-size: 1.2em;
-            font-weight: 100;
-            color: white;
-            letter-spacing: 2.5px;
-        }
-
-        /* Light & Dark Mode */
-        .light-mode {
-            /*background: #f4f4f4;*/
-
-            color: black;
-        }
-
-        .dark-mode {
-            background: black;
-            color: white;
-        }
-
-        /* Nav Links */
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-            position: relative;
-            padding: 0px 20px;
-            right: 20px;
-            margin: 0px;
-        }
-
-        .nav-links li {
-            display: inline;
-            position: relative;
-        }
-
-        /* Dropdown Styling */
-        .dropdown-menu {
-            display: block;
-            position: absolute;
-            background: rgba(0, 0, 0, 0.9);
-            min-width: 150px;
-            top: 40px;
-            left: 0;
-            padding: 0px;
-            border-radius: 5px;
-            overflow: hidden;
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .dropdown-menu li {
-            display: block;
-            padding: 10px;
-            transition: background 0.3s;
-        }
-
-        .dropdown-menu a {
-            color: white;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-menu li:hover {
-            background: #ff4e50;
-        }
-
-        /* Dropdown Hover Effect */
-        .dropdown:hover .dropdown-menu {
-            display: block;
-            opacity: 1;
-            transform: translateY(5px);
-        }
-
-        .menu-toggle {
-            display: none;
-
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-                font-size: 2em;
-                background: none;
-                border: none;
-                color: white;
-                right: 40px;
-                z-index: 100;
-                position: relative;
-                cursor: pointer;
-                transition: transform 0.3s;
-            }
-
-            .nav-links {
-                display: flex;
-                flex-direction: column;
-                /*background: #333;*/
-                background-color: black;
-                width: 180px;
-                height: 100vh;
-                position: fixed;
-                top: 104px;
-                right: -290px;
-                padding: 40px 20px;
-                text-align: left;
-                transition: right 0.5s ease-in-out;
-            }
-
-            .nav-links.show {
-                right: 0;
-            }
-
-
-            .dropdown-menu {
-                position: static;
-                opacity: 1;
-                display: none;
-                background: #1e1a1a;
-            }
-
-            .dropdown.open .dropdown-menu {
-                display: block;
-            }
-
-            .nav-links a {
-                font-size: 1em;
-                display: block;
-                margin: 10px 0;
-                text-decoration: none;
-                color: white;
-            }
-        }
-
-        .nav-links a {
-
-            text-decoration: none;
-            color: white;
-            letter-spacing: 2px;
-            line-height: 1.4;
-        }
-
-        .main-body {
-            /* position: relative;
-            top: 80px;
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;8*/
-            position: absolute;
-            top: 90px;
-            margin: auto;
-            left: 5%;
-            right: 5%;
-            overflow: hidden;
-            padding: 20px;
-        }
-
-        .commun {
-            padding: 10px;
-
-        }
-
-        /* Mobile Dropdown Click Effect */
-        /*@media (max-width: 768px) {
-    .menu-toggle {
-       
-
-         display: block;
-        position: relative;
-        right: 40px;
-    }
-
-    .nav-links {
-        
-
-         display: none;
-        flex-direction: column;
-        background: #333;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        padding: 20px;
-        text-align: center;
-    }
-
-    .nav-links.show {
-        
-         display: flex;
-        animation: slideDown 0.5s ease-in-out;
-    }
-         @keyframes slideDown {
-        from {
-            transform: translateY(-10px);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-
-    .dropdown-menu {
-        position: static;
-        opacity: 1;
-        display: none;
-        background: #444;
-    }
-
-    .dropdown.open .dropdown-menu {
-        display: block;
-    }
-
-    .nav-links a {
-        font-size: 1.5em;
-        display: block;
-        margin: 10px 0;
-    }
-}*/
-.text{
-    padding: 60px 10px;
-}
-  .text span {
-      display: inline-block;
-      font-size: 40px;
-
-      letter-spacing: 6px;
-font-weight: 600;
-      opacity: 0;
-      transform: translateY(50px) scale(0.8);
-
-      animation: reveal 4s ease-in-out infinite;
-    }
-
-      @keyframes reveal {
-      0% {
-        opacity: 0;
-        transform: translateY(50px) scale(0.8);
-      }
-
-      30% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-
-      70% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-
-      100% {
-        opacity: 0;
-        transform: translateY(-50px) scale(0.8);
-      }
-    }
-
-    </style>
+    <title>Alex | Web Developer & Graphic Designer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-
-
-<!--<div className="header">
-        <h1>My Portfolio</h1>
-        <nav>
-          <ul>
-            <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>-->
-<!--<body class="light-mode">
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><button id="theme-toggle">🌙</button></li>
-        </ul>
-    </nav>
-    <header>
-        <h1>Hi, I'm <span>[Your Name]</span></h1>
-        <p>Full Stack Web Developer</p>
-        <a href="#portfolio" class="btn">View My Work</a>
-    </header>
-    <section id="testimonials" class="slide-in">
-        <h2>What Clients Say</h2>
-        <div class="testimonial">
-            <p>"Amazing developer! Built my website flawlessly!"</p>
-            <h4>- John Doe</h4>
-        </div>
-        <div class="testimonial">
-            <p>"Highly skilled and professional. Delivered on time."</p>
-            <h4>- Jane Smith</h4>
-        </div>
-    </section>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a passionate web developer specializing in front-end and back-end development...</p>
-    </section>
-
-    
-
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-    
-</body>-->
-
-<body class="light-mode">
-    <header class="fade-in">
-
-        <nav>
-            <div class="logo"><a href="" style="text-decoration: none;
-    color: white;">MyPortfolio</a></div>
-            <button class="menu-toggle" id="menu-toggle">☰</button>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="about.html">About</a></li>
-                <li class="dropdown">
-                    <a href="#portfolio">Portfolio ⌵</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#web-design">Web Design</a></li>
-                        <li><a href="#graphic-design">Graphic Design</a></li>
-                        <li><a href="#branding">Branding</a></li>
-                    </ul>
-                </li>
-                <!-- <li class="dropdown">
-                    <a href="#blog">Blog ⌵</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#tech">Tech</a></li>
-                        <li><a href="#design">Design</a></li>
-                        <li><a href="#marketing">Marketing</a></li>
-                    </ul>
-                </li>-->
-                <!--<li><a href="#testimonials">Testimonials</a></li>-->
-                <li><a href="#contact">Contact</a></li>
-                <li><button id="theme-toggle" style="display: contents;">🌙</button></li>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Alex.</a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-        </nav>
-    </header>
- 
+            <a href="#contact" class="nav-cta">Hire Me</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
 
-    <main class="main-body" style="max-width: 1000px;">
-       <div class="text" id="text"></div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="#contact" class="mobile-cta">Hire Me</a>
+    </div>
 
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- Animated Background Grid -->
+        <div class="bg-grid"></div>
+        
+        <!-- Floating Orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
 
+        <!-- Corner Decorations -->
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
 
-       <!--<h1 style="    font-size: 2rem;
-    padding: 40px 0px;
-    letter-spacing: 6px;
-    line-height: 1.4;
-    font-variant-caps: all-small-caps;">Welcome to my portfolio! </h1>--> 
-    
-    <!--<p style="letter-spacing: 2px;
-            line-height: 1.4;">a web developer passionate about creating modern,
-                responsive, and user-friendly websites. With expertise in HTML, CSS, JavaScript, React, Node.js,
-                Laravel, Php, Sql and WordPress, I develop solutions that enhance digital experiences.</p>-->
-        <section>
-            <p style="letter-spacing: 2px;
-    line-height: 1.4; font-size: 1.2rem;">Welcome to My Creative Portfolio! 🌟 Dive into a world where artistry meets
-                functionality. As a
-                web developer and graphic designer,
-                I thrive on crafting seamless digital experiences and captivating visuals that leave a lasting
-                impression.</p>
-            <!--<p style="letter-spacing: 2px;
-            line-height: 1.4;">Web Developer | Designer </p>-->
-            <section>
-                <!--<div style="padding: 10px 0px;"><a href="#portfolio" class="btn">Explore My Work</a></div>-->
-            </section>
-            <div style="display: none;">
-                <section id="portfolio">
-                    <!--<h2>My Projects</h2>
-            <div class="project">
-                <img src="" alt="Project 1">
-                
-            </div>-->
-                    <div id="about">
-                        <!--<h1>about me</h1>-->
+        <div class="hero-content">
+            <!-- Greeting -->
+            <span class="greeting scroll-animate">👋 Welcome to my portfolio</span>
+            
+            <!-- Name -->
+            <h1 class="hero-name scroll-animate">
+                Hi, I'm <span class="name-highlight">Alex</span>
+                <svg class="underline-svg" viewBox="0 0 200 12" fill="none">
+                    <path class="underline-path" d="M2 10C50 2 150 2 198 10" stroke="url(#gradient)" stroke-width="4" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0" y1="0" x2="200" y2="0">
+                            <stop stop-color="#22d3ee"/>
+                            <stop offset="0.5" stop-color="#3b82f6"/>
+                            <stop offset="1" stop-color="#9333ea"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </h1>
 
-
-                    </div>
-
-                    <div style="letter-spacing: 2px;
-            line-height: 1.4;
-            place-items: anchor-center;
-        ">
-                        <!--<h2 style="font-size: 20px;
-                letter-spacing: 2px;
-                line-height: 1.4;">I offer a range of web development services to meet your business needs:</h2> <br>
-                <section style="
-    justify-items: baseline;">
-                <li> Custom Web Development – Tailor-made solutions from scratch</li> <br>
-                 <li>E-commerce Development – Online stores with seamless shopping experiences</li> <br>
-                 <li>Website Optimization – Speed, performance, and SEO improvements </li><br>
-                 <li>WordPress Development – Custom themes and plugin integrations</li></section>
-                 Web Development: Explore my skillset in creating responsive, user-friendly websites that marry aesthetic
-                appeal with robust functionality.
-                From elegant front-end designs to efficient back-end solutions, my projects reflect my passion for
-                coding and problem-solving.
-                 -->
-                        Welcome to My Web Development Portfolio! 🌟 As a budding web developer, I'm excited to showcase
-                        my
-                        journey into the world of coding and design.
-                        This portfolio is a collection of my learning experiences, projects, and creative experiments as
-                        I
-                        build my skills in crafting functional and visually appealing websites
-                    </div>
-                    <section>
-                        <p style="letter-spacing: 2px;
-                line-height: 1.4;"> years of experience in front-end and back-end development.
-                            I specialize in building fast, accessible, and visually appealing websites. My skill set
-                            includes:
-                        </p>
-                    </section>
-                    <div style="letter-spacing: 2px;
-            line-height: 1.4;">Skills: Proficiency in web technologies like HTML, CSS, JavaScript, React, Laravel,
-                        WordPress, Bootstrap, Node.js and
-                        Java as I continue to learn and expand my toolkit.</div>
-                    <p style="letter-spacing: 2px;
-            line-height: 1.4; font-weight: 600;">I believe in writing clean, efficient code and delivering digital
-                        experiences that make
-                        an impact.</p>
-
-                </section>
-
-                <section>
-                    <section>
-                        <p style="letter-spacing: 2px;
-            line-height: 1.4;">Graphic Design
-
-                        </p>
-
-
-                    </section>
-                    <div style="letter-spacing: 2px;
-                line-height: 1.4;margin: 10px 0px;">Projects: My initial design works, including Catalogue, logos,
-                        posters, social
-                        media graphics, and
-                        more—each crafted with dedication and creativity.</div>
-
-                    <!--<section style="letter-spacing: 2px;
-            line-height: 1.4;"> Front-End: HTML, CSS, JavaScript, React, Vue.js
-                    Back-End: Node.js, PHP, Python
-                    CMS & E-commerce: WordPress, Shopify
-                    Database: MySQL, Firebase
-                    Deployment & Performance: Git, AWS, SEO optimization</section>-->
-                    <div>
-                        <section style="letter-spacing: 2px;
-            line-height: 1.4;">
-                            Skills: My foundational knowledge in Adobe illustrator, photoshop, indesign, dimension,
-                            Coraldraw,
-                            and
-                            canva.
-                        </section>
-                    </div>
-                </section>
-            </div>
-            <footer style="font-size: 1.1rem;">
-                <div style="position: relative;place-items: anchor-center;
-            display: block;
-            bottom: 0px;
-            padding: 70px 0px 0px 0px;">
-                    <h2 style="font-size: 16px;
-                letter-spacing: 2px;
-                line-height: 1.4;">For queries get in touch</h2>
-                    <p style="
-                letter-spacing: 2px;
-                line-height: 1.4;">Have a project in mind or need a developer for your team? Feel free to reach out.
-                    </p>
-                    <section style="display: flex
-                    ;
-                        flex-wrap: wrap;
-                        justify-content: center;">
-                        <div class="commun"><label for="">Email:<a href="mailto:work.sahani@gmail.com"
-                                    style=" text-decoration: none;">work.sahani@gmail.com</a></label></div>
-                        <!--<div class="commun"><label for="">Website:<a href="">www.yourportfolio.com</a></label></div>-->
-                        <div class="commun"><label for="">Linkedin:<a href="https://www.linkedin.com/in/sachin-sahani-84aaa0218/
-                            " style=" text-decoration: none;">https://www.linkedin.com/in/sachin-sahani-84aaa0218/
-                                </a></label></div>
-                    </section>
+            <!-- Infinite Loop Role Animation -->
+            <div class="role-container scroll-animate">
+                <div class="role-wrapper">
+                    <div class="role role-1 active">WEB DEVELOPER</div>
+                    <div class="role role-2">UI/UX DESIGNER</div>
+                    <div class="role role-3">GRAPHIC DESIGNER</div>
+                    <div class="role role-4">CREATIVE CODER</div>
                 </div>
-        </section>
-        </footer>
-    </main>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const menuToggle = document.getElementById("menu-toggle");
-            const navLinks = document.getElementById("nav-links");
-            const dropdowns = document.querySelectorAll(".dropdown");
+            </div>
 
-            // Toggle Mobile Menu
-            menuToggle.addEventListener("click", () => {
-                navLinks.classList.toggle("show");
-                menuToggle.textContent = navLinks.classList.contains("show") ? "✖" : "☰";
-            });
+            <!-- Description -->
+            <p class="hero-description scroll-animate">
+                I craft beautiful digital experiences that combine <span class="text-cyan">clean code</span> with <span class="text-pink">stunning design</span>. Let's build something amazing together.
+            </p>
 
-            // Close menu when a link is clicked (on mobile)
-            document.querySelectorAll(".nav-links a").forEach(link => {
-                link.addEventListener("click", () => {
-                    navLinks.classList.remove("show");
-                    menuToggle.textContent = "☰";
-                });
-            });
+            <!-- Skills Tags -->
+            <div class="skills-container scroll-animate">
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Photoshop</span>
+                <span class="skill-tag">Illustrator</span>
+                <span class="skill-tag">Tailwind CSS</span>
+                <span class="skill-tag">Three.js</span>
+                <span class="skill-tag">Next.js</span>
+                <span class="skill-tag">UI Design</span>
+                <span class="skill-tag">Branding</span>
+                <span class="skill-tag">Motion</span>
+            </div>
 
-            // Dropdown Click Functionality (for Mobile)
-            dropdowns.forEach(dropdown => {
-                dropdown.addEventListener("click", function () {
-                    this.classList.toggle("open");
-                });
-            });
+            <!-- CTA Buttons -->
+            <div class="hero-buttons scroll-animate">
+                <a href="#projects" class="btn btn-primary">
+                    View My Work
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
 
-            // Dark Mode Toggle
-            const themeToggle = document.getElementById("theme-toggle");
-            themeToggle.addEventListener("click", () => {
-                document.body.classList.toggle("dark-mode");
-                document.body.classList.toggle("light-mode");
-                themeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
-            });
-        });
+            <!-- Role Indicator Dots -->
+            <div class="role-dots">
+                <button class="role-dot active" data-index="0" aria-label="Role 1"></button>
+                <button class="role-dot" data-index="1" aria-label="Role 2"></button>
+                <button class="role-dot" data-index="2" aria-label="Role 3"></button>
+                <button class="role-dot" data-index="3" aria-label="Role 4"></button>
+            </div>
+        </div>
 
+        <!-- Scroll Indicator -->
+        <a href="#about" class="scroll-indicator">
+            <span class="scroll-text">Scroll</span>
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+        </a>
+    </section>
 
-        const text = "HI, I'M SACHIN SAHANI. I COMBINE DESIGN AND CODE TO MAKE MEMORABLE DIGITAL EXPERIENCES.";
-        const container = document.getElementById("text");
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="bg-pattern"></div>
+        
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">
+                    Passionate About <span class="gradient-text">Creating</span>
+                </h2>
+                <p class="section-description">
+                    With over 5 years of experience in web development and design, I bring ideas to life through clean code and pixel-perfect designs.
+                </p>
+            </div>
 
-        text.split("").forEach((char, i) => {
-            const span = document.createElement("span");
-            span.textContent = char === " " ? "\u00A0" : char;
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card scroll-animate">
+                    <div class="stat-value">5+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card scroll-animate">
+                    <div class="stat-value">50+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card scroll-animate">
+                    <div class="stat-value">30+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-card scroll-animate">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+            </div>
 
-            span.style.animationDelay = `${i * 0.15}s`;
-            container.appendChild(span);
-        });
+            <!-- Services -->
+            <div class="services-section">
+                <h3 class="services-title scroll-animate">What I Do</h3>
+                <div class="services-grid">
+                    <div class="service-card scroll-animate">
+                        <div class="service-icon">💻</div>
+                        <h4 class="service-title">Web Development</h4>
+                        <p class="service-description">Building fast, responsive, and scalable web applications using modern technologies.</p>
+                    </div>
+                    <div class="service-card scroll-animate">
+                        <div class="service-icon">🎨</div>
+                        <h4 class="service-title">UI/UX Design</h4>
+                        <p class="service-description">Creating intuitive and visually stunning user interfaces that delight users.</p>
+                    </div>
+                    <div class="service-card scroll-animate">
+                        <div class="service-icon">✨</div>
+                        <h4 class="service-title">Graphic Design</h4>
+                        <p class="service-description">Crafting memorable brand identities, logos, and marketing materials.</p>
+                    </div>
+                    <div class="service-card scroll-animate">
+                        <div class="service-icon">🚀</div>
+                        <h4 class="service-title">Motion Design</h4>
+                        <p class="service-description">Bringing designs to life with smooth animations and micro-interactions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
- 
-    </script>
-    
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="bg-gradient"></div>
+        
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <span class="section-tag section-tag-purple">My Work</span>
+                <h2 class="section-title">
+                    Featured <span class="gradient-text-purple">Projects</span>
+                </h2>
+                <p class="section-description">
+                    A selection of my recent work across web development, UI/UX design, and graphic design.
+                </p>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <div class="project-card scroll-animate">
+                    <div class="project-image project-gradient-pink">
+                        <span class="project-icon">🛒</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Web Development</span>
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">A full-stack e-commerce solution with real-time inventory and payment integration.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Stripe</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card scroll-animate">
+                    <div class="project-image project-gradient-cyan">
+                        <span class="project-icon">📊</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">UI/UX Design</span>
+                        <h3 class="project-title">Finance Dashboard</h3>
+                        <p class="project-description">Modern dashboard for tracking investments, expenses, and financial goals.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Figma</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">D3.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card scroll-animate">
+                    <div class="project-image project-gradient-purple">
+                        <span class="project-icon">🎨</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Graphic Design</span>
+                        <h3 class="project-title">Brand Identity</h3>
+                        <p class="project-description">Complete brand identity including logo, color palette, and marketing materials.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Illustrator</span>
+                            <span class="tech-tag">Photoshop</span>
+                            <span class="tech-tag">InDesign</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card scroll-animate">
+                    <div class="project-image project-gradient-emerald">
+                        <span class="project-icon">💬</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Web Development</span>
+                        <h3 class="project-title">Social Media App</h3>
+                        <p class="project-description">Real-time social platform with messaging, posts, and user interactions.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Socket.io</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Redis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card scroll-animate">
+                    <div class="project-image project-gradient-orange">
+                        <span class="project-icon">🌐</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">UI/UX Design</span>
+                        <h3 class="project-title">Portfolio Website</h3>
+                        <p class="project-description">Creative portfolio website with smooth animations and interactive elements.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Figma</span>
+                            <span class="tech-tag">Framer</span>
+                            <span class="tech-tag">GSAP</span>
+                            <span class="tech-tag">Three.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card scroll-animate">
+                    <div class="project-image project-gradient-red">
+                        <span class="project-icon">📱</span>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-category">Graphic Design</span>
+                        <h3 class="project-title">Mobile App Design</h3>
+                        <p class="project-description">Fitness tracking app with intuitive UI and engaging user experience.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Figma</span>
+                            <span class="tech-tag">Principle</span>
+                            <span class="tech-tag">After Effects</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Button -->
+            <div class="text-center scroll-animate">
+                <a href="#" class="btn btn-outline">
+                    View All Projects
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="bg-gradient-contact"></div>
+        
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <span class="section-tag section-tag-pink">Get In Touch</span>
+                <h2 class="section-title">
+                    Let's Work <span class="gradient-text-pink">Together</span>
+                </h2>
+                <p class="section-description">
+                    Have a project in mind? I'd love to hear about it. Send me a message and let's create something amazing.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper scroll-animate">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea id="message" name="message" class="form-textarea" rows="5" placeholder="Tell me about your project..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            Send Message
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info scroll-animate">
+                    <div class="info-card">
+                        <h3 class="info-title">Contact Information</h3>
+                        <div class="info-items">
+                            <div class="info-item">
+                                <div class="info-icon info-icon-cyan">📧</div>
+                                <div class="info-content">
+                                    <span class="info-label">Email</span>
+                                    <span class="info-value">hello@alexdesign.dev</span>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon info-icon-purple">📍</div>
+                                <div class="info-content">
+                                    <span class="info-label">Location</span>
+                                    <span class="info-value">San Francisco, CA</span>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon info-icon-pink">🕐</div>
+                                <div class="info-content">
+                                    <span class="info-label">Availability</span>
+                                    <span class="info-value">Open for freelance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3 class="info-title">Follow Me</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link" title="GitHub">⭐</a>
+                            <a href="#" class="social-link" title="LinkedIn">💼</a>
+                            <a href="#" class="social-link" title="Dribbble">🏀</a>
+                            <a href="#" class="social-link" title="Twitter">🐦</a>
+                        </div>
+                    </div>
+
+                    <div class="quick-response">
+                        <p class="quick-text">⚡ Quick Response</p>
+                        <p class="quick-desc">I typically respond to all inquiries within 24 hours. Looking forward to hearing from you!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Alex.</div>
+                <p class="footer-text">
+                    © <span id="currentYear"></span> Alex. All rights reserved. Crafted with <span class="heart">♥</span> and lots of ☕
+                </p>
+                <button class="back-to-top" id="backToTop" aria-label="Back to top">
+                    <span>Back to top</span>
+                    <div class="back-to-top-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-
 </html>
